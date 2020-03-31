@@ -11,7 +11,7 @@ y = dataSetIris.iloc[:,6].values
 # CODIFICANDO DADOS CATEGORICOS/STRING
 # Tocantins:    0 0 1
 # Maranhao:     0 1 0
-    # ...
+
 from sklearn.compose import ColumnTransformer
 from sklearn.preprocessing import OneHotEncoder
 from sklearn.preprocessing import OrdinalEncoder
