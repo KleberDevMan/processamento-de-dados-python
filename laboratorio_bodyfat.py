@@ -16,21 +16,21 @@ code_y = LabelEncoder()
 y = code_y.fit_transform(y)
 
 # # TESTANDO A NORMALIDADE DOS DADOS
-import scipy.stats as stats
+# import scipy.stats as stats
 
-p = [1,2,3]
-for i in range(3):
-    a, p[i] = stats.shapiro(X[:,i])
+# p = [1,2,3]
+# for i in range(3):
+#     a, p[i] = stats.shapiro(X[:,i])
 
-print("Teste de Shapiro-Wilk {}".format(a))
+# print("Teste de Shapiro-Wilk {}".format(a))
 
-i = 0
-for x in p:
-    if x >= 0.05:
-        print("coluna {}º NÃO-NORMAL. valor teste: ({})".format(i, x))
-    else:
-        print("coluna {}º NORMAL. valor teste: ({})".format(i, x))
-    i+=1
+# i = 0
+# for x in p:
+#     if x >= 0.05:
+#         print("coluna {}º NÃO-NORMAL. valor teste: ({})".format(i, x))
+#     else:
+#         print("coluna {}º NORMAL. valor teste: ({})".format(i, x))
+#     i+=1
 
 # # PADRONIZANDO OS DADOS
 from sklearn.preprocessing import StandardScaler
