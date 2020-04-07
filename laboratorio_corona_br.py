@@ -1,11 +1,13 @@
 import numpy as np
 import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
 
 data = pd.read_csv('dados corona brasil (corona vírus)/brazil_covid19_v2.csv')
 
-print(data.describe())
-print(data.corr())
-print(data.cov())
+# print(data.describe())
+# print(data.corr())
+# print(data.cov())
 
 
 # 1. PRE-PŔOCESSANDO OS DADOS
@@ -35,8 +37,8 @@ print(data.cov())
 
 
 # 2. DANDO UMA OLHADA NOS DADOS
-# d = data['cases']
-# import functions as func
+d = data['cases']
+import functions as func
 
 #histograma
 # func.histograma_bins(d, 'Mortes')
@@ -45,7 +47,7 @@ print(data.cov())
 # func.grafico_densidade(d)
 
 #casos confirmados e mortes ao longo do tempo
-# func.mortes_casos_ao_longo_tempo(data)
+func.mortes_casos_ao_longo_tempo(data)
 
 # COVARIANCIA(indício de correlação): variabilidade conjunta entre variaveis
 #   positiva: se uma crescer, outra cresce
@@ -60,8 +62,7 @@ print(data.cov())
 #       - quanto mais proximo de 1, mais forte é a correlacao positiva
 #       - quanto mais proximo de -1, mais forte é a correlacao negativa
 
-# import matplotlib.pyplot as plt
-# import seaborn as sns
+
 
 # plt.figure(dpi=100)
 # plt.title('Correlation Analysis')
