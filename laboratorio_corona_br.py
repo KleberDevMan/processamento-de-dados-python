@@ -3,6 +3,11 @@ import pandas as pd
 
 data = pd.read_csv('dados corona brasil (corona vírus)/brazil_covid19_v2.csv')
 
+print(data.describe())
+print(data.corr())
+print(data.cov())
+
+
 # 1. PRE-PŔOCESSANDO OS DADOS
 # # variáveis independentes (caracteristicas; atributos)
 # X = data.iloc[:,[2,3]].values
@@ -30,8 +35,8 @@ data = pd.read_csv('dados corona brasil (corona vírus)/brazil_covid19_v2.csv')
 
 
 # 2. DANDO UMA OLHADA NOS DADOS
-d = data['cases']
-import functions as func
+# d = data['cases']
+# import functions as func
 
 #histograma
 # func.histograma_bins(d, 'Mortes')
@@ -39,10 +44,28 @@ import functions as func
 #densidade
 # func.grafico_densidade(d)
 
-# COVARIANCIA: variabilidade conjunta entre variaveis
+#casos confirmados e mortes ao longo do tempo
+# func.mortes_casos_ao_longo_tempo(data)
+
+# COVARIANCIA(indício de correlação): variabilidade conjunta entre variaveis
 #   positiva: se uma crescer, outra cresce
 #   negativa: se uma crescer, outra diminui
 #   magnitude: quanto mais proximo de zero, menor o efeito de uma sobre a outra
 
 # COVARIANCIA ENTRE TODAS
-# cov_X = data.iloc[:,]
+
+
+# CORRELACAO: Mostra a relação entre um par de variáveis
+#   magnitude: 
+#       - quanto mais proximo de 1, mais forte é a correlacao positiva
+#       - quanto mais proximo de -1, mais forte é a correlacao negativa
+
+# import matplotlib.pyplot as plt
+# import seaborn as sns
+
+# plt.figure(dpi=100)
+# plt.title('Correlation Analysis')
+# sns.heatmap(data.corr(),annot=True,lw=1,linecolor='white',cmap='viridis')
+# plt.xticks(rotation=60)
+# plt.yticks(rotation = 60)
+# plt.show()

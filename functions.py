@@ -24,5 +24,33 @@ def grafico_densidade(d):
             kde_kws={'linewidth':6})
 
 
+import plotly.graph_objects as go
+from plotly.subplots import make_subplots
+from plotly.graph_objs import Layout
+def mortes_casos_ao_longo_tempo(data):
+    data_over_time = data[['cases','deaths']].groupby(data['date']).sum().sort_values(by = 'cases', ascending=True)
+
+    layout = Layout(
+        paper_bgcolor='rgba(0,0,0,0)'
+        , plot_bgcolor='rgba(0,0,0,0)'
+    )
+
+    fig = make_subplots(rows=2, cols=1
+                        , subplot_titles=('Casos confirmados', 'Mortes'))
+
+    fig.append_trace(go.Line(name='Confirmados'
+                            , x = data_over_time.index
+                            , y = data_over_time['cases'])
+                            , row=1, col=1)
+
+    fig.append_trace(go.Line(name='Mortes'
+                            , x = data_over_time.index
+                            , y = data_over_time['deaths'])
+                            , row=2, col=1)
+
+    fig['layout'].update(layout)
+
+    fig.show()
+
 
     
