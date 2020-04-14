@@ -41,10 +41,10 @@ d = data['cases']
 import functions as func
 
 #histograma
-# func.histograma_bins(d, 'Mortes')
+func.histograma_bins(d, 'Mortes')
 
 #densidade
-# func.grafico_densidade(d)
+func.grafico_densidade(d)
 
 #casos confirmados e mortes ao longo do tempo
 func.mortes_casos_ao_longo_tempo(data)
@@ -62,6 +62,13 @@ func.mortes_casos_ao_longo_tempo(data)
 #       - quanto mais proximo de 1, mais forte é a correlacao positiva
 #       - quanto mais proximo de -1, mais forte é a correlacao negativa
 
+
+plt.figure(dpi=100)
+plt.title('Correlation Analysis')
+sns.heatmap(data.corr(),annot=True,lw=1,linecolor='white',cmap='viridis')
+plt.xticks(rotation=60)
+plt.yticks(rotation = 60)
+plt.show()
 
 
 # plt.figure(dpi=100)
