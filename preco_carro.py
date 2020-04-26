@@ -49,7 +49,7 @@ preco_pred_obs = [preco_pred, preco_test]
 plt.rcParams['figure.figsize'] = [12, 12]
 plt.scatter(TMOTOR_train, preco_train, color = 'red')
 plt.plot(TMOTOR_train, regressor.predict(TMOTOR_train.reshape(-1, 1)), color = 'black')
-plt.title('Tamanho do Motor vs. Preço')
+plt.title('Tamanho do Motor vs. Preço - Treinamento')
 plt.xlabel('Tamanho do motor')
 plt.ylabel('Preço')
 plt.show()
@@ -58,7 +58,7 @@ plt.show()
 plt.rcParams['figure.figsize'] = [12, 12]
 plt.scatter(TMOTOR_test, preco_test, color = 'red')
 plt.plot(TMOTOR_test, regressor.predict(TMOTOR_test.reshape(-1, 1)), color = 'black')
-plt.title('Tamanho do Motor vs. Preço')
+plt.title('Tamanho do Motor vs. Preço - Teste')
 plt.xlabel('Tamanho do motor')
 plt.ylabel('Preço')
 plt.show()
