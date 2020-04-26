@@ -5,10 +5,9 @@ import seaborn as sns
 
 data = pd.read_csv('dados corona brasil (corona vírus)/brazil_covid19_v2.csv')
 
-# print(data.describe())
-# print(data.corr())
-# print(data.cov())
-
+print(data.describe())
+print(data.corr())
+print(data.cov())
 
 # 1. PRE-PŔOCESSANDO OS DADOS
 # # variáveis independentes (caracteristicas; atributos)
@@ -41,7 +40,7 @@ d = data['cases']
 import functions as func
 
 #histograma
-func.histograma_bins(d, 'Mortes')
+func.histograma_bins(d, 'Casos')
 
 #densidade
 func.grafico_densidade(d)
