@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 # caracteristicas e preco de um carro
-data = pd.read_csv('CarPrice_Assignment.csv')
+data = pd.read_csv('carros_data.csv')
 
 # grafico de calor para verficar variáveis correlacionadas
 f, ax = plt.subplots(figsize=(24, 21))
@@ -32,6 +32,7 @@ regressor = LinearRegression()
 regressor.fit(TMOTOR_train.reshape(-1, 1), preco_train)
 regressor.coef_
 regressor.intercept_
+## Dúvida: Porque a cada execução o regressor gera variáveis novas? É por causa da separação dos dados de teste e treinamento.
 # Coeficiente: b1 = 161.45
 # Constante: b0 = -7337.47 --> significa que se o carro vier sem motor o dono deve ser ressarcido em aprox. U$ 7337.47
 # preco = b0 + b1 * tam_motor
