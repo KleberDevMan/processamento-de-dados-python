@@ -40,25 +40,26 @@ X = X[:, 1:]
 
 # separar dados de testes e dados de treinamento
 X_train, X_test, y_train, y_test = train_test_split(
-    X, y, test_size=0.2, train_size=0.8)
+    X, y, test_size=0.2, random_state=0)
 
 # regressao linear multipla
-from sklearn.linear_model import LinearRegression
 regressor = LinearRegression()
 
 # Preparando o regressor
-# encotra a melhor predicao/regressao (melhor reta)
 regressor.fit(X_train, y_train)
-regressor.coef_
-regressor.intercept_
-# Dúvida: Porque a cada execução o regressor gera variáveis novas? É por causa da separação dos dados de teste e treinamento.
-# Coeficiente: b1 = 161.45
-# Constante: b0 = -7337.47 --> significa que se o carro vier sem motor o dono deve ser ressarcido em aprox. U$ 7337.47
-# y = b0 + b1 * tam_motor
-# y = 161.45 + -7337.47 * tam_motor
+regressor.intercept_ # preco do carro se for zero em todas variáveis independentes
+regressor.coef_ # todos coeficientes (angulo da reta) gerados para cada variavel
 
-# Fazendo a predição do valor de alguns carros usando dados de teste
+# Constante: b0 = -14372.43 --> significa que se o carro tiver zero nas variaveis independentes o dono deve ser ressarcido em aprox. U$ 14372.43
+# Coeficiente: b1 = 331.59
+# Coeficiente: b2 = 5.38
+# Coeficiente: b3 = 106.23
+# preco = b0 + b1 * fueltype + b2 * curbweight + b3 * enginesize
+# preco = -13800.20 + 331.59 * fueltype + 5.38 * curbweight + 106.23 * enginesize 
+
+# Fazendo a predição do valor dos carros dos dados de teste
 y_pred = regressor.predict(X_test)
 
 # comparando valores previstos com os valores reais
-compara_ys = np.concatenate((y_pred.reshape(len(y_pred), 1), y_test.reshape(len(y_test), 1)), 1)
+compara_ys = np.concatenate(
+    ( np.around(y_pred,1).reshape(len(y_pred), 1), y_test.reshape(len(y_test), 1)), 1)
