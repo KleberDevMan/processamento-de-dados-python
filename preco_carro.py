@@ -36,13 +36,16 @@ regressor.intercept_
 # Coeficiente: b1 = 161.45
 # Constante: b0 = -7337.47 --> significa que se o carro vier sem motor o dono deve ser ressarcido em aprox. U$ 7337.47
 # preco = b0 + b1 * tam_motor
-# preco = 161.45 + -7337.47 * tam_motor
+# preco = -7337.47 + 161.45 * tam_motor
 
 ## Fazendo a predição do valor de alguns carros usando dados de teste
 preco_pred = regressor.predict(TMOTOR_test.reshape(-1, 1))
 
 # comparando valores previstos com os valores reais
 preco_pred_obs = [preco_pred, preco_test]
+a = np.hstack((preco_pred, preco_test))
+
+b = np.concatenate(( np.around(preco_pred,1).reshape(len(preco_pred), 1), preco_test.reshape(len(preco_test), 1)), 1)
 
 ## Visualizacao dos dados Gráfico Scatter
 # predicao dos precos dos carros nos dados de treinamento
