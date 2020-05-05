@@ -1,7 +1,7 @@
 car_ID                car_ID
 symboling             simbolizando
 CarName               CarName
-*fueltype              tipo de combustível
+*fueltype             tipo de combustível
 aspiration            aspiração
 doornumber            número da porta
 carbody               carroçaria
