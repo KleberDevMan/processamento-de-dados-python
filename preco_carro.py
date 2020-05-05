@@ -19,14 +19,14 @@ import seaborn as sns
 data = pd.read_csv('carros_data.csv')
 
 # dando uma olhada nos dados
-# data
+data
 
 # verificando se tem dados vazios
-# data.isnull().sum()
+data.isnull().sum()
 
 # grafico de calor para verficar variáveis correlacionadas
-# f, ax = plt.subplots(figsize=(24, 21))
-# sns.heatmap(data.corr(), annot=True, linewidths=10.0, ax=ax)
+f, ax = plt.subplots(figsize=(24, 21))
+sns.heatmap(data.corr(), annot=True, linewidths=10.0, ax=ax)
 
 # variaveis independentes
 # *fueltype             tipo de combustível
@@ -59,7 +59,7 @@ regressor.intercept_ # preco do carro se for zero em todas variáveis independen
 regressor.coef_ # todos coeficientes (angulo da reta) gerados para cada variavel
 
 # Com horsepower:
-# Constante: b0 = -10252.20 --> significa que se o carro tiver zero em todas variaveis independentes
+# Constante: b0 = -10252.20 significa que se o carro tiver zero em todas variaveis independentes
 # Coeficiente: b1 = -2241.94
 # Coeficiente: b2 = 3.50
 # Coeficiente: b3 = 71.51
@@ -85,4 +85,8 @@ compara_ys = np.concatenate(
 # Predição de um novo carro
 # parametros: gasolina, massa tt do carro, peso do motor, cavalos de potência
 gol = np.reshape([1, 2500, 130, 82], (-1, 4)) # tranformo em uma matriz 1x3 (linhaxcoluna)
-print('preço do gol: R$', format(regressor.predict(gol)[0], '.2f'))
+print('preço do gol: U$', format(regressor.predict(gol)[0], '.2f'))
+
+
+# pergunta que fica:
+# O uso do horsepower almentou a acuracia do meu modelo de predição?
