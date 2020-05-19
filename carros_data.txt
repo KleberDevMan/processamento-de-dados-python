@@ -8,8 +8,8 @@ carbody               carroçaria
 drivewheel            roda motriz
 enginelocation        localização do motor
 wheelbase             distância entre eixos
-carlength             comprimento do carro
-carwidth              largura de carro
+-carlength             comprimento do carro
+-carwidth              largura de carro
 carheight             altura do carro
 *curbweight           massa total de um veículo com equipamento padrãocom equipamento padrão
 enginetype            tipo de motor
