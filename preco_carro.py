@@ -135,7 +135,7 @@ y_pred = regressor.predict(X_test) # Faz predição
 
 # comparando valores previstos X reais
 compara_ys = np.concatenate(
-    (np.around(y_pred, 1).reshape(len(y_pred), 1), y_test.reshape(len(y_test), 1)), 1)
+    (np.around(y_pred, 1).reshape(len(y_pred), 1), y_test.values.reshape(len(y_test), 1)), 1)
 
 # Acurácia modelo2
 # *fueltype             tipo de combustível
