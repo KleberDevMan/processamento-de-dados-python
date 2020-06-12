@@ -74,7 +74,7 @@ regressor_svr.fit(X_train_svr, y_train_svr)
 
 # prevendo o número de mortes
 # quando temos 220.000 casos confirmados
-sc_y.inverse_transform(regressor_svr.predict(sc_X.transform([[220000]]))) # result: 11.130 mortes
+sc_y.inverse_transform(regressor_svr.predict(sc_X.transform([[220000]]))) 
 
 
 ## Metricas de qualidade
